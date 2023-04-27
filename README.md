@@ -82,3 +82,9 @@ Create **jsx** file & build base component structure rapidly:
 ```
 'rafce + tab'
 ```
+
+Close all open files:
+
+```
+Ctrl + w
+```

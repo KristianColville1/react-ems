@@ -74,3 +74,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 This list covers the essential packages of this project:
 
 npm isntall --legacy-peer-deps
+
+### Code Snippets
+
+Create **jsx** file & build base component structure rapidly:
+
+```
+'rafce + tab'
+```

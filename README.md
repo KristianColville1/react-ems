@@ -88,3 +88,24 @@ Close all open files:
 ```
 Ctrl + w
 ```
+
+Selecting the start of multiple strings:
+
+```
+hold alt and click on the start of strings.
+```
+
+Switching between components (or links):
+
+```
+hold Ctrl and left click on element
+```
+
+
+## React Essentials
+
+Allows switching between pages for react app:
+
+```
+import { Link, NavLink } from'react-router-dom';
+```

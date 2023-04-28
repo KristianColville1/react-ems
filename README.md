@@ -101,7 +101,6 @@ Switching between components (or links):
 hold Ctrl and left click on element
 ```
 
-
 ## React Essentials
 
 Allows switching between pages for react app:
@@ -109,3 +108,7 @@ Allows switching between pages for react app:
 ```
 import { Link, NavLink } from'react-router-dom';
 ```
+
+## React Toturial
+
+[React Admin Dashboard App With Theming, Tables, Charts, Calendar, Kanban and More](https://www.youtube.com/watch?v=jx5hdo50a2M&list=PL2iEqIOJnuZYs_Hkoay0eS9O2jMPtw8JN&index=7&t=3897s "React Toturial")

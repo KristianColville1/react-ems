@@ -5,10 +5,11 @@ import { MdOutlineCancel } from "react-icons/md";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
 import { links } from "../data/dummy";
+import { useStateContext } from "../contexts/ContextProvider";
 
 const Sidebar = () => {
-    console.log(links)
-    const activeMenu = true;
+    const { activeMenu, setActiveMenu } = useStateContext();
+
     const activeLink =
         "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md-m2";
     const normalLink =
@@ -20,11 +21,10 @@ const Sidebar = () => {
                     <div className="flex justify-between items-center">
                         <Link
                             to="/"
-                            onClick={() => {}}
+                            onClick={() => setActiveMenu(false)}
                             className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900"
                         >
-                            <SiShopware />
-                            <span>EMS</span>
+                            <SiShopware /> <span>Shoppy</span>
                         </Link>
                         <TooltipComponent
                             content="Menu"
@@ -32,7 +32,7 @@ const Sidebar = () => {
                         >
                             <button
                                 type="button"
-                                onClick={() => {}}
+                                onClick={() => setActiveMenu(prevActiveState => !prevActiveState)}
                                 className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden"
                             >
                                 <MdOutlineCancel />
@@ -40,25 +40,28 @@ const Sidebar = () => {
                         </TooltipComponent>
                     </div>
                     <div className="mt-10">
-                        {links.map(item =>
+                        {links.map((item) => (
                             <div key={item.title}>
                                 <p className="text-gray-400 m-3 mt-4 uppercase">
                                     {item.title}
                                 </p>
-                                {item.links.map((link) => <NavLink
+                                {item.links.map((link) => (
+                                    <NavLink
                                         to={`/${link.name}`}
                                         key={link.name}
                                         onClick={() => {}}
-                                        className={({ isActive }) => isActive?activeLink:normalLink}
+                                        className={({ isActive }) =>
+                                            isActive ? activeLink : normalLink
+                                        }
                                     >
                                         {link.icon}
                                         <span className="capitalize">
                                             {link.name}
                                         </span>
                                     </NavLink>
-                                )}
+                                ))}
                             </div>
-                        )}
+                        ))}
                     </div>
                 </>
             )}

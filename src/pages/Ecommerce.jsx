@@ -1,5 +1,5 @@
 import React from "react";
-import { BiCurrencyDollar } from "react-icons/bs";
+import { BsCurrencyEuro } from "react-icons/bs";
 import { GoPrimitiveDot } from "react-icons/go";
 import { Stacked, Pie, Button, SparkLine } from "../components";
 import {
@@ -11,6 +11,7 @@ import {
 import { useStateContext } from "../contexts/ContextProvider";
 
 const Ecommerce = () => {
+    const { currentColor, currentMode } = useStateContext();
     return (
         <div className="mt-24">
             <div className="flex flex-wrap lg:flex-nowrap justify-center">
@@ -18,16 +19,22 @@ const Ecommerce = () => {
                     <div className="flex justify-between items-center">
                         <div>
                             <p className="font-bold text-gray-400">Earnings</p>
-                            <p className="text-2xl">€20,000</p>
+                            <p className="text-2xl dark:text-gray-700">€20,000</p>
                         </div>
+                        <button
+                            type="button"
+                            style={{ backgroundColor: currentColor }}
+                            className="text-2xl opacity-0.9 text-white hover:drop-shadow-xl rounded-full  p-4"
+                        >
+                            <BsCurrencyEuro />
+                        </button>
                     </div>
                     <div className="mt-6">
                         <Button
                             color="white"
-                            bgColor="blue"
+                            bgColor={currentColor}
                             text="Download"
                             borderRadius="10px"
-                            size="md"
                         />
                     </div>
                 </div>
@@ -97,28 +104,26 @@ const Ecommerce = () => {
                                 <p className="text-gray-500 mt-1">Budget</p>
                             </div>
                             <div className="mt-8">
-                                <p className="text-3xl font-semibold">
-                                    
-                                </p>
+                                <p className="text-3xl font-semibold"></p>
 
                                 <p className="text-gray-500 mt-1">Expense</p>
                             </div>
 
                             <div className="mt-5">
                                 <SparkLine
-                                    currentColor="blue"
+                                    currentColor={currentColor}
                                     id="line-sparkLine"
                                     type="Line"
                                     height="80px"
                                     width="250px"
                                     data={SparklineAreaData}
-                                    color="blue"
+                                    color={currentColor}
                                 />
                             </div>
                             <div className="mt-10">
                                 <Button
                                     color="white"
-                                    bgColor="blue"
+                                    bgColor={currentColor}
                                     text="Download Report"
                                     borderRadius="10px"
                                 />
@@ -126,13 +131,13 @@ const Ecommerce = () => {
                         </div>
                         <div>
                             <Stacked
+                                currentMode={currentMode}
                                 width="320px"
                                 height="360px"
                             />
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     );
